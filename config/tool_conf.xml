@@ -1,0 +1,3 @@
+  <section id="sbc-rs" name="SynBioCAD RetroSynthesis">
+    <tool file="rpTools/rp2paths/galaxy/wrap.xml" />
+  </section>
