@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
-from os import path as os_path
 from shutil import move as shutil_move
-import tempfile
-import argparse
+from tempfile import TemporaryDirectory as tempfile_tempdir
+from argparse import ArgumentParser as argparse_ArgParser
 
 import sys
 sys.path.insert(0, '/home/src')
@@ -13,7 +12,7 @@ from RP2paths import entrypoint as RP2paths_entrypoint
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser('Python wrapper for the python RP2paths script')
+    parser = argparse_ArgParser('Python wrapper for the python RP2paths script')
     parser.add_argument('-_file_rp2_pathways', type=str)
     parser.add_argument('-rp2paths_pathways', type=str)
     parser.add_argument('-rp2paths_compounds', type=str)
@@ -26,7 +25,7 @@ if __name__ == "__main__":
         logging.error('Time out cannot be less than 0: '+str(params.timeout))
         exit(1)
 
-    with tempfile.TemporaryDirectory() as tmpdirname:
+    with tempfile_tempdir() as tmpdirname:
         args = [
             'all',
             params._file_rp2_pathways,
