@@ -7,7 +7,6 @@ import argparse
 
 import sys
 sys.path.insert(0, '/home/src')
-from RP2paths import build_parser as RP2paths_buildparser
 from RP2paths import entrypoint as RP2paths_entrypoint
 
 
