@@ -4,8 +4,8 @@ from shutil import move as shutil_move
 from tempfile import TemporaryDirectory as tempfile_tempdir
 from argparse import ArgumentParser as argparse_ArgParser
 
-import sys
-sys.path.insert(0, '/home/src')
+from sys import path as sys_path
+sys_path.insert(0, '/home/src')
 from RP2paths import entrypoint as RP2paths_entrypoint
 
 
