@@ -8,13 +8,12 @@
 		<regex match="WARNING:" level="warning" />
 	</stdio>
   <command detect_errors="exit_code"><![CDATA[
-    python '$__tool_directory__/run.py' -_file_rp2_pathways '$rp2_pathways' -rp2paths_pathways '$rp2paths_pathways' -rp2paths_compounds '$rp2paths_compounds' -timeout '$adv.timeout' -server_url '$adv.server_url' -galaxy true
+    python '$__tool_directory__/run.py' -_file_rp2_pathways '$rp2_pathways' -rp2paths_pathways '$rp2paths_pathways' -rp2paths_compounds '$rp2paths_compounds' -timeout '$adv.timeout'
   ]]></command>
   <inputs>
     <param name="rp2_pathways" type="data" format="csv" label="RetroPath2.0 Pathways" />
     <section name="adv" title="Advanced Options" expanded="false">
 			<param name="timeout" type="integer" value="1800" label="Time Out" />
-			<param name="server_url" type="text" value="http://flask:8000/rp2paths_master" label="Server URL" />
     </section>
   </inputs>
   <outputs>
