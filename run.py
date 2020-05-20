@@ -7,6 +7,7 @@ from os import path as os_path
 from sys import path as sys_path
 sys_path.insert(0, '/home/src')
 from RP2paths import entrypoint as RP2paths_entrypoint
+from RP2paths import NoScopeMatrix as RP2paths_NoScopeMatrix
 
 
 
@@ -33,9 +34,9 @@ if __name__ == "__main__":
             '--timeout', str(params.timeout)
             ]
 
-        RP2paths_entrypoint(args)
-
-        if os_path.isfile(tmpdirname+'/out_paths.csv'):
+        try:
+            RP2paths_entrypoint(args)
             shutil_move(tmpdirname+'/out_paths.csv', params.rp2paths_pathways)
-        else: open(params.rp2paths_pathways,"w+").close()
+        except RP2paths_NoScopeMatrix:
+            open(params.rp2paths_pathways,"w+").close()
         shutil_move(tmpdirname+'/compounds.txt', params.rp2paths_compounds)
