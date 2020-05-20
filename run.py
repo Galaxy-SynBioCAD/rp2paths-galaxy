@@ -3,7 +3,7 @@
 from shutil import move as shutil_move
 from tempfile import TemporaryDirectory as tempfile_tempdir
 from argparse import ArgumentParser as argparse_ArgParser
-
+from os import path as os_path
 from sys import path as sys_path
 sys_path.insert(0, '/home/src')
 from RP2paths import entrypoint as RP2paths_entrypoint
@@ -32,6 +32,10 @@ if __name__ == "__main__":
             '--outdir', tmpdirname,
             '--timeout', str(params.timeout)
             ]
+
         RP2paths_entrypoint(args)
-        shutil_move(tmpdirname+'/out_paths.csv', params.rp2paths_pathways)
+
+        if os_path.isfile(tmpdirname+'/out_paths.csv'):
+            shutil_move(tmpdirname+'/out_paths.csv', params.rp2paths_pathways)
+        else: open(params.rp2paths_pathways,"w+").close()
         shutil_move(tmpdirname+'/compounds.txt', params.rp2paths_compounds)
