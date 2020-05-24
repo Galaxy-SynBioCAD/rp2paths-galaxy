@@ -6,8 +6,8 @@ from argparse import ArgumentParser as argparse_ArgParser
 from os import path as os_path
 from sys import path as sys_path
 sys_path.insert(0, '/home/src')
-from RP2paths import entrypoint as RP2paths_entrypoint
-from RP2paths import NoScopeMatrix as RP2paths_NoScopeMatrix
+from RP2paths import entrypoint as tool_entrypoint
+from RP2paths import NoScopeMatrix as tool_exception
 
 
 
@@ -35,8 +35,8 @@ if __name__ == "__main__":
             ]
 
         try:
-            RP2paths_entrypoint(args)
+            tool_entrypoint(args)
             shutil_move(tmpdirname+'/out_paths.csv', params.rp2paths_pathways)
-        except RP2paths_NoScopeMatrix:
+        except tool_exception:
             open(params.rp2paths_pathways,"w+").close()
         shutil_move(tmpdirname+'/compounds.txt', params.rp2paths_compounds)
