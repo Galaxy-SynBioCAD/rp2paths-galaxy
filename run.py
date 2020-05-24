@@ -38,6 +38,6 @@ if __name__ == "__main__":
             tool_entrypoint(args)
             shutil_move(tmpdirname+'/out_paths.csv', params.rp2paths_pathways)
         except tool_exception:
-            # No solution, then create empty file
+            # No solution found, then create empty file
             open(params.rp2paths_pathways,"w+").close()
         shutil_move(tmpdirname+'/compounds.txt', params.rp2paths_compounds)
