@@ -17,8 +17,8 @@
     </section>
   </inputs>
   <outputs>
-    <data name="rp2paths_pathways" format="csv" label="RP2Paths Pathways" />
-    <data name="rp2paths_compounds" format="tsv" label="RP2paths Compounds" />
+    <data name="rp2paths_pathways" format="csv" label="${tool.name} Pathways" />
+    <data name="rp2paths_compounds" format="tsv" label="${tool.name} Compounds" />
   </outputs>
   <help><![CDATA[
 rp2paths
