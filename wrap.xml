@@ -9,15 +9,16 @@
 		<regex match="WARNING:" level="warning" />
 	</stdio>
   <command detect_errors="exit_code"><![CDATA[
+    #from os import path as os_path
     cd /tmp &&
-    outFolder=`dirname '$rp2paths_pathways'`
-    mkdir $outFolder &&
+    #set outFolder = os_path.basename(str($rp2paths_pathways))
+    mkdir '$outFolder' &&
     python -m rp2paths
       '$rp2_pathways'
-      --outdir $outFolder
+      --outdir '$outFolder'
       --timeout '$adv.timeout' &&
-    cp $outFolder/out_comp '$rp2paths_compounds' &&
-    cp $outFolder/out_paths.csv '$rp2paths_pathways' &&
+    cp '$outFolder'/out_comp '$rp2paths_compounds' &&
+    cp '$outFolder'/out_paths.csv '$rp2paths_pathways' &&
     rm -rf $outFolder
   ]]></command>
   <!-- python '$__tool_directory__/run.py' -_file_rp2_pathways '$rp2_pathways' -rp2paths_pathways '$rp2paths_pathways' -rp2paths_compounds '$rp2paths_compounds' -timeout '$adv.timeout' -->
