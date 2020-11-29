@@ -13,7 +13,7 @@
     cd /tmp &&
     #set outFolder = os_path.basename(str($rp2paths_pathways))
     mkdir '$outFolder' &&
-    python -m rp2paths
+    python -m rp2paths all
       '$rp2_pathways'
       --outdir '$outFolder'
       --timeout '$adv.timeout' &&
